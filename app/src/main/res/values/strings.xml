@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">BankSystem</string>
+    <string name="login_view_sign_up">Don’t have an account? Sign up</string>
+</resources>

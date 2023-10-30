@@ -16,7 +16,7 @@ public class ApiClient {
 
         public ApiClient() {
             Retrofit retrofit = new Retrofit.Builder()
-                    .baseUrl("base url") //TODO: Replace with your API base URL
+                    .baseUrl("base url") //TODO : Replace with your API base URL
                     .addConverterFactory(GsonConverterFactory.create())
                     .build();
 
@@ -32,7 +32,7 @@ public class ApiClient {
                 public void onResponse(Call<AuthTokenResponse> call, Response<AuthTokenResponse> response) {
                     if (response.isSuccessful()) {
                         AuthTokenResponse authTokenResponse = response.body();
-                        //TODO: Store the authToken securely
+                        //TODO : Store the authToken securely
 
 //                        String authToken = authTokenResponse.getToken();
                     } else {

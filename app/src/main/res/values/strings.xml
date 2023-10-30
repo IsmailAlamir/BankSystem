@@ -1,4 +1,17 @@
 <resources>
     <string name="app_name">BankSystem</string>
     <string name="login_view_sign_up">Don’t have an account? Sign up</string>
+    <string name="create_a_onebank_account">Create A OneBank\nAccount</string>
+    <string name="fill_in_your_information">Please fill in your information\nto create your account</string>
+    <string name="firstname">First Name</string>
+    <string name="last_name">Last Name</string>
+    <string name="id_number">Id Number</string>
+    <string name="phone_number">Phone Number</string>
+    <string name="email">Email</string>
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="terms_and_conditions">By creating an account, you agree to our Terms and Conditions.</string>
+    <string name="have_an_account">already have an account ? Sign In</string>
+    <string name="sign_up">Sign Up</string>
 </resources>

@@ -15,12 +15,14 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.banksystem.R;
+import com.example.banksystem.Registration.RegistrationActivity;
+import com.example.banksystem.data.model.RegisterRequest;
 import com.example.banksystem.data.remote.ApiClient;
 
 public class HomeActivity extends AppCompatActivity {
     TextView signup;
     EditText username, password;
-    ApiClient apiClient = new ApiClient();
+//    ApiClient apiClient = new ApiClient();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,7 +33,7 @@ public class HomeActivity extends AppCompatActivity {
 
         username=findViewById(R.id.et_username_login);
         password=findViewById(R.id.et_password_login);
-        apiClient.loginUser(username.toString(), password.toString());
+//        apiClient.loginUser(username.toString(), password.toString());
 
 
     }
@@ -44,7 +46,9 @@ public class HomeActivity extends AppCompatActivity {
         ClickableSpan signUpSpan = new ClickableSpan() {
             @Override
             public void onClick(@NonNull View widget) {
-                Log.i("testing sign up","done");
+                Intent intent = new Intent(getBaseContext(), RegistrationActivity.class);
+                startActivity(intent);
+
             }
         };
 

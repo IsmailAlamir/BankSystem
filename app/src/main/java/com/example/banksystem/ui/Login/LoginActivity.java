@@ -1,4 +1,4 @@
-package com.example.banksystem.Login;
+package com.example.banksystem.ui.Login;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -9,15 +9,19 @@ import android.text.SpannableString;
 import android.text.method.LinkMovementMethod;
 import android.text.style.ClickableSpan;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
 import com.example.banksystem.R;
-import com.example.banksystem.Registration.RegistrationActivity;
+import com.example.banksystem.ui.Home.HomeActivity;
+import com.example.banksystem.ui.MainActivity;
+import com.example.banksystem.ui.Registration.RegistrationActivity;
 
 public class LoginActivity extends AppCompatActivity {
     TextView signup;
     EditText username, password;
+    Button loginBtn;
 //    ApiClient apiClient = new ApiClient();
 
     @Override
@@ -29,7 +33,18 @@ public class LoginActivity extends AppCompatActivity {
 
         username=findViewById(R.id.et_username_login);
         password=findViewById(R.id.et_password_login);
+        loginBtn=findViewById(R.id.login_button);
 //        apiClient.loginUser(username.toString(), password.toString());
+
+        loginBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getBaseContext(), HomeActivity.class);
+                startActivity(intent);
+
+            }
+        });
+
 
 
     }

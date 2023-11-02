@@ -1,4 +1,4 @@
-package com.example.banksystem.Registration;
+package com.example.banksystem.ui.Registration;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -15,7 +15,7 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import com.example.banksystem.Login.LoginActivity;
+import com.example.banksystem.ui.Login.LoginActivity;
 import com.example.banksystem.R;
 
 public class RegistrationActivity extends AppCompatActivity {

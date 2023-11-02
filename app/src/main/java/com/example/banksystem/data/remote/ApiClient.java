@@ -16,7 +16,7 @@ public class ApiClient {
 
         public ApiClient() {
             Retrofit retrofit = new Retrofit.Builder()
-                    .baseUrl("base url") //TODO : Replace with your API base URL
+                    .baseUrl("https://bank-system-kappa.vercel.app/")
                     .addConverterFactory(GsonConverterFactory.create())
                     .build();
 

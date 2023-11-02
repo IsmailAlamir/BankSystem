@@ -15,9 +15,8 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import com.example.banksystem.Home.HomeActivity;
+import com.example.banksystem.Login.LoginActivity;
 import com.example.banksystem.R;
-import com.example.banksystem.data.model.RegisterRequest;
 
 public class RegistrationActivity extends AppCompatActivity {
     TextView signIn;
@@ -54,7 +53,7 @@ public class RegistrationActivity extends AppCompatActivity {
         ClickableSpan signUpSpan = new ClickableSpan() {
             @Override
             public void onClick(@NonNull View widget) {
-                Intent intent = new Intent(getBaseContext(), HomeActivity.class);
+                Intent intent = new Intent(getBaseContext(), LoginActivity.class);
                 startActivity(intent);
 
             }

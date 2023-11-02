@@ -14,4 +14,9 @@
     <string name="terms_and_conditions">By creating an account, you agree to our Terms and Conditions.</string>
     <string name="have_an_account">already have an account ? Sign In</string>
     <string name="sign_up">Sign Up</string>
+    <string name="notifications">Notifications</string>
+    <string name="account_management">Account Management</string>
+    <string name="personal_information">Personal Information</string>
+    <string name="sharing">Sharing</string>
+    <string name="settings">Settings</string>
 </resources>

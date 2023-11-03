@@ -1,10 +1,13 @@
 package com.example.banksystem.ui.Home;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
+
 import com.example.banksystem.R;
 
 
@@ -54,7 +57,9 @@ public class HomeFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
+        View v= inflater.inflate(R.layout.fragment_home, container, false);
+        TextView textView=v.findViewById(R.id.hello_blank_fragment);
 
-        return inflater.inflate(R.layout.fragment_home, container, false);
+        return v;
     }
 }

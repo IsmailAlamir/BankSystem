@@ -6,11 +6,11 @@
         android:title="@string/home"
         android:icon="@drawable/ic_action_home"/>
 
-    <item android:id="@+id/nav_doctors"
+    <item android:id="@+id/nav_pay"
         android:title="@string/pay"
         android:icon="@drawable/ic_action_pay"/>
 
-    <item android:id="@+id/nav_schedule"
+    <item android:id="@+id/nav_stats"
         android:title="@string/stats"
         android:icon="@drawable/ic_action_stats"/>
 

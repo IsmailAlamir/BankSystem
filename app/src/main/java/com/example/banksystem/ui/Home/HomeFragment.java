@@ -1,14 +1,20 @@
 package com.example.banksystem.ui.Home;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import androidx.fragment.app.Fragment;
+
+import android.text.method.PasswordTransformationMethod;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.banksystem.R;
+import com.example.banksystem.ui.Login.LoginActivity;
 
 
 public class HomeFragment extends Fragment {
@@ -58,8 +64,47 @@ public class HomeFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View v= inflater.inflate(R.layout.fragment_home, container, false);
-        TextView textView=v.findViewById(R.id.hello_blank_fragment);
+        TextView totalBalance= v.findViewById(R.id.tv_total_balance);
+        ImageView toggle= v.findViewById(R.id.iv_toggle_total_balance);
+        @SuppressLint({"MissingInflatedId", "LocalSuppress"})
+        TextView allView=v.findViewById(R.id.tv_view_all_transactions);
+
+
+        // TODO : change the activity
+        allView.setOnClickListener(view -> {
+            Intent intent = new Intent(HomeFragment.this.getActivity(), LoginActivity.class);
+            startActivity(intent);
+        });
+
+
+        // TODO : make it dynamic
+        double amount= 10;
+        String formattedAmount = String.format("%.3f", amount); // 10. 000
+
+        String accountNumberPlaceholder = getString(R.string.var_total_balance,formattedAmount);
+//        String formattedUsername = String.format(accountNumberPlaceholder, "ssss");
+        totalBalance.setText(accountNumberPlaceholder);
+
+
+
+
+        toggle.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (totalBalance.getTransformationMethod() instanceof PasswordTransformationMethod) {
+                    totalBalance.setTransformationMethod(null);
+                    toggle.setImageResource(R.drawable.ic_visibility_on);
+                } else {
+                    toggle.setImageResource(R.drawable.ic_visibility_off);
+                    totalBalance.setTransformationMethod(new PasswordTransformationMethod());
+                }
+
+            }
+        });
+
 
         return v;
     }
+
 }
+

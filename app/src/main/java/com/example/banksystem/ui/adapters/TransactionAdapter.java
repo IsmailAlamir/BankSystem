@@ -15,14 +15,13 @@ import com.example.banksystem.R;
 import com.example.banksystem.data.model.Transaction;
 
 import java.math.BigDecimal;
-import java.util.Date;
-import java.util.List;
+import java.util.ArrayList;
 
 public class TransactionAdapter extends RecyclerView.Adapter<TransactionAdapter.ViewHolder> {
-    List<Transaction> transactionList;
+    ArrayList<Transaction> transactionList;
     Context context;
 
-    public TransactionAdapter(List<Transaction> transactionList) {
+    public TransactionAdapter(ArrayList<Transaction> transactionList) {
         this.transactionList = transactionList;
     }
 
@@ -38,13 +37,12 @@ public class TransactionAdapter extends RecyclerView.Adapter<TransactionAdapter.
     @SuppressLint("SetTextI18n")
     @Override
     public void onBindViewHolder(@NonNull TransactionAdapter.ViewHolder holder, int position) {
-        holder.name.setText((CharSequence) transactionList.get(position).getAmount());
+        holder.name.setText(String.valueOf(transactionList.get(position).getAmount()));
         holder.date.setText(transactionList.get(position).getDate());
         holder.amount.setText(transactionList.get(position).getAmount()+" JD");
 
 
-        int comparisonResult = transactionList.get(position).getAmount().compareTo(new BigDecimal(0));
-        if (comparisonResult < 0) {
+        if (transactionList.get(position).getAmount() < 0) {
             holder.iconPath.setImageResource(R.drawable.ic_pay_money);
             } else {
             holder.iconPath.setImageResource(R.drawable.ic_receive_money);

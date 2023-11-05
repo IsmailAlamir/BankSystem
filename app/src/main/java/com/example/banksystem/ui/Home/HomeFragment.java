@@ -4,6 +4,8 @@ import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.text.method.PasswordTransformationMethod;
 import android.util.Log;
@@ -11,10 +13,17 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.ScrollView;
 import android.widget.TextView;
 
 import com.example.banksystem.R;
+import com.example.banksystem.data.model.Transaction;
 import com.example.banksystem.ui.Login.LoginActivity;
+import com.example.banksystem.ui.adapters.TransactionAdapter;
+
+import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.Objects;
 
 
 public class HomeFragment extends Fragment {
@@ -70,6 +79,27 @@ public class HomeFragment extends Fragment {
         TextView allView=v.findViewById(R.id.tv_view_all_transactions);
 
 
+        ArrayList<Transaction> transactions = new ArrayList<>();
+        // TODO : API required , only 5 items
+        transactions.add(new Transaction("Tariq","13th March 2023", 10.00d ));
+        transactions.add(new Transaction("Ismail","14th March 2023", -100.50d ));
+        transactions.add(new Transaction("Ismail","14th March 2023", -100.50d ));
+        transactions.add(new Transaction("Ismail","14th March 2023", -100.50d ));
+        transactions.add(new Transaction("Ismail","14th March 2023", -100.50d ));
+        transactions.add(new Transaction("Ismail","14th March 2023", -100.50d ));
+        transactions.add(new Transaction("Ismail","14th March 2023", -100.50d ));
+        transactions.add(new Transaction("Ismail","14th March 2023", -100.50d ));
+
+
+
+        RecyclerView transactionRecyclerView= v.findViewById(R.id.rv_recent_transactions);
+        transactionRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity().getBaseContext(),LinearLayoutManager.VERTICAL,false));
+
+        TransactionAdapter transactionAdapter =new TransactionAdapter(transactions);
+        transactionRecyclerView.setAdapter(transactionAdapter);
+
+
+
         // TODO : change the activity
         allView.setOnClickListener(view -> {
             Intent intent = new Intent(HomeFragment.this.getActivity(), LoginActivity.class);
@@ -105,6 +135,7 @@ public class HomeFragment extends Fragment {
 
         return v;
     }
+
 
 }
 

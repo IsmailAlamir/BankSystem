@@ -37,7 +37,7 @@ public class TransactionAdapter extends RecyclerView.Adapter<TransactionAdapter.
     @SuppressLint("SetTextI18n")
     @Override
     public void onBindViewHolder(@NonNull TransactionAdapter.ViewHolder holder, int position) {
-        holder.name.setText(String.valueOf(transactionList.get(position).getAmount()));
+        holder.name.setText(String.valueOf(transactionList.get(position).getName()));
         holder.date.setText(transactionList.get(position).getDate());
         holder.amount.setText(transactionList.get(position).getAmount()+" JD");
 

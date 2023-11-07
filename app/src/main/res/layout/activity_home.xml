@@ -45,7 +45,8 @@
             app:itemIconTint="@color/bottom_nav_color"
             app:itemTextColor="@color/secondary"
             app:labelVisibilityMode="labeled"
-            app:menu="@menu/bottom_navigation_menu" />
+            app:menu="@menu/bottom_navigation_menu"
+            app:itemActiveIndicatorStyle="@style/App.Custom.Indicator" />
 
 
     </LinearLayout>

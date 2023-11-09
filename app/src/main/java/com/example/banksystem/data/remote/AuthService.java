@@ -9,10 +9,10 @@ import retrofit2.http.Body;
 import retrofit2.http.POST;
 
 public interface AuthService {
-    @POST("login") //TODO : Replace with the actual endpoint URL
-    Call<AuthTokenResponse> login(@Body LoginRequest request);
+    @POST("api-auth/login/") //TODO : Replace with the actual endpoint URL
+    Call<LoginRequest> login(@Body LoginRequest request);
 
-    @POST("register") //TODO : Replace with the actual endpoint URL
-    Call<AuthTokenResponse> register(@Body RegisterRequest request);
+    @POST("api/v1/accounts/createCustomer/") //TODO : Replace with the actual endpoint URL
+    Call<RegisterRequest> register(@Body RegisterRequest request);
 
 }

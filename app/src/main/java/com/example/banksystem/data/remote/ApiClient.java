@@ -4,6 +4,7 @@ import android.util.Log;
 
 import com.example.banksystem.data.model.AuthTokenResponse;
 import com.example.banksystem.data.model.LoginRequest;
+import com.example.banksystem.data.model.RegisterRequest;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -12,40 +13,69 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class ApiClient {
-         private AuthService authService;
+        private AuthService authService;
 
         public ApiClient() {
             Retrofit retrofit = new Retrofit.Builder()
-                    .baseUrl("https://bank-system-kappa.vercel.app/")
+                    .baseUrl("https://8000-tareqzoubii-banksystem-dgubkvjxx62.ws-us106.gitpod.io/")// TODO : change url
                     .addConverterFactory(GsonConverterFactory.create())
                     .build();
 
             authService = retrofit.create(AuthService.class);
         }
 
-        public void loginUser(String username, String password) {
-            LoginRequest loginRequest = new LoginRequest(username, password);
+        public void loginUser(LoginRequest loginRequest) {
 
-            Call<AuthTokenResponse> call = authService.login(loginRequest);
-            call.enqueue(new Callback<AuthTokenResponse>() {
+            Call<LoginRequest> call = authService.login(loginRequest);
+            call.enqueue(new Callback<LoginRequest>() {
                 @Override
-                public void onResponse(Call<AuthTokenResponse> call, Response<AuthTokenResponse> response) {
+                public void onResponse(Call<LoginRequest> call, Response<LoginRequest> response) {
                     if (response.isSuccessful()) {
-                        AuthTokenResponse authTokenResponse = response.body();
+                        LoginRequest loginRequest = response.body();
                         //TODO : Store the authToken securely
+                        Log.e("authTokenResponse", String.valueOf(response)) ;
 
 //                        String authToken = authTokenResponse.getToken();
                     } else {
-                        Log.e("authTokenResponse", "error in Response") ;
+                        Log.e("authTokenResponse",call+ String.valueOf(response)) ;
                     }
                 }
 
                 @Override
-                public void onFailure(Call<AuthTokenResponse> call, Throwable t) {
+                public void onFailure(Call<LoginRequest> call, Throwable t) {
                     // TODO: Handle network errors here
                 }
             });
         }
+
+
+
+    public void registerUser(RegisterRequest  registerRequest) {
+
+        Call<RegisterRequest> call = authService.register(registerRequest);
+        Log.i("authTokenResponsePassed", registerRequest.toString()) ;
+
+        call.enqueue(new Callback<RegisterRequest>() {
+            @Override
+            public void onResponse(Call<RegisterRequest> call, Response<RegisterRequest> response) {
+                if (response.isSuccessful()) {
+                    RegisterRequest registerRequest = response.body();
+                    //TODO : Store the authToken securely
+                    Log.i("authTokenResponse", "Successful"+registerRequest) ;
+
+                } else {
+                    Log.e("authTokenResponse", "error in Response"+response) ;
+                }
+            }
+
+            @Override
+            public void onFailure(Call<RegisterRequest> call, Throwable t) {
+
+            }
+
+        });
     }
+
+}
 
 

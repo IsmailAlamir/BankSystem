@@ -3,12 +3,16 @@ package com.example.banksystem.ui.Home;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
+
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.text.method.PasswordTransformationMethod;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,6 +24,7 @@ import com.example.banksystem.R;
 import com.example.banksystem.data.model.Transaction;
 import com.example.banksystem.ui.Login.LoginActivity;
 import com.example.banksystem.ui.adapters.TransactionAdapter;
+import com.google.android.material.navigation.NavigationView;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -77,6 +82,21 @@ public class HomeFragment extends Fragment {
         ImageView toggle= v.findViewById(R.id.iv_toggle_total_balance);
         @SuppressLint({"MissingInflatedId", "LocalSuppress"})
         TextView allView=v.findViewById(R.id.tv_view_all_transactions);
+        @SuppressLint({"MissingInflatedId", "LocalSuppress"})
+        ImageView menu=v.findViewById(R.id.iv_menu_button);
+
+
+        menu.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                DrawerLayout drawerLayout = getActivity().findViewById(R.id.drawer_layout); // Use the ID of your DrawerLayout
+                if (!drawerLayout.isDrawerOpen(GravityCompat.START)) {
+                    drawerLayout.openDrawer(GravityCompat.START);
+                } else {
+                    drawerLayout.closeDrawer(GravityCompat.START);
+                }
+            }
+        });
 
 
         ArrayList<Transaction> transactions = new ArrayList<>();

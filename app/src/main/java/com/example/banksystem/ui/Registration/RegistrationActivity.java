@@ -9,14 +9,22 @@ import android.os.Bundle;
 import android.text.SpannableString;
 import android.text.method.LinkMovementMethod;
 import android.text.style.ClickableSpan;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.example.banksystem.data.model.AuthTokenResponse;
+import com.example.banksystem.data.model.LoginRequest;
+import com.example.banksystem.data.model.RegisterRequest;
+import com.example.banksystem.data.remote.ApiClient;
+import com.example.banksystem.data.remote.AuthService;
 import com.example.banksystem.ui.Login.LoginActivity;
 import com.example.banksystem.R;
+
+import retrofit2.Call;
 
 public class RegistrationActivity extends AppCompatActivity {
     TextView signIn;
@@ -43,6 +51,24 @@ public class RegistrationActivity extends AppCompatActivity {
         checkBox=findViewById(R.id.ch_confirm);
 
         signInHandling();
+
+
+        signup.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ApiClient apiClient=new ApiClient();
+                LoginRequest loginRequest = new LoginRequest(
+                        "firstname.toString()",
+                        "password.toString()");
+                apiClient.loginUser(loginRequest);
+                Log.i("signup button", "done ");
+
+            }
+
+        });
+
+
+
 
     }
 

@@ -14,6 +14,9 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.example.banksystem.R;
+import com.example.banksystem.data.model.LoginRequest;
+import com.example.banksystem.data.model.RegisterRequest;
+import com.example.banksystem.data.remote.ApiClient;
 import com.example.banksystem.ui.Home.HomeActivity;
 import com.example.banksystem.ui.MainActivity;
 import com.example.banksystem.ui.Registration.RegistrationActivity;
@@ -34,14 +37,20 @@ public class LoginActivity extends AppCompatActivity {
         username=findViewById(R.id.et_username_login);
         password=findViewById(R.id.et_password_login);
         loginBtn=findViewById(R.id.login_button);
-//        apiClient.loginUser(username.toString(), password.toString());
 
         loginBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                ApiClient apiClient=new ApiClient();
+                LoginRequest user = new LoginRequest(
+                        username.getText().toString(),
+                        password.getText().toString());
+
+                apiClient.loginUser(user);
+
+
                 Intent intent = new Intent(getBaseContext(), HomeActivity.class);
                 startActivity(intent);
-
             }
         });
 

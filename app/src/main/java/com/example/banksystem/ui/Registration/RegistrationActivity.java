@@ -1,5 +1,7 @@
 package com.example.banksystem.ui.Registration;
 
+import static android.widget.Toast.LENGTH_LONG;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -15,6 +17,7 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.banksystem.data.model.AuthTokenResponse;
 import com.example.banksystem.data.model.LoginRequest;
@@ -37,7 +40,6 @@ public class RegistrationActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registration);
-
         signIn=findViewById(R.id.tv_sign_in);
         signup=findViewById(R.id.signup_button);
         firstname=findViewById(R.id.et_firstname_register);
@@ -57,11 +59,31 @@ public class RegistrationActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 ApiClient apiClient=new ApiClient();
-                LoginRequest loginRequest = new LoginRequest(
-                        "firstname.toString()",
-                        "password.toString()");
-                apiClient.loginUser(loginRequest);
-                Log.i("signup button", "done ");
+//                RegisterRequest user = new RegisterRequest(
+//                        "username",
+//                        "email@email.com",
+//                        "password",
+//                        "first_name",
+//                        "last_name",
+//                        "1234567890",
+//                        "1234567890",
+//                        null,
+//                        null);
+
+
+                RegisterRequest user = new RegisterRequest(
+                        username.getText().toString(),
+                        email.getText().toString(),
+                        password.getText().toString(),
+                        firstname.getText().toString(),
+                        lastname.getText().toString(),
+                        idNumber.getText().toString(),
+                        phone.getText().toString(),
+                        null,
+                        null);
+
+
+                apiClient.registerUser(user);
 
             }
 

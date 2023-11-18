@@ -1,7 +1,7 @@
 # Bank Android Application Readme
 
 
-##Author:
+## Author:
 - [Ismail Alamir](https://github.com/IsmailAlamir) : developed the android app using Android studio. 
 - [Tareq Alzoubi](https://github.com/tareqzoubii) : developed the API using Django [bank Api](https://github.com/tareqzoubii/Bank-System).
 

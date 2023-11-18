@@ -2,22 +2,17 @@ package com.example.banksystem.ui.Home;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 
-import android.annotation.SuppressLint;
-import android.content.Intent;
 import android.os.Bundle;
 import android.text.method.PasswordTransformationMethod;
-import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 
 import com.example.banksystem.R;
-import com.example.banksystem.ui.Login.LoginActivity;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
 import com.google.android.material.navigation.NavigationView;
@@ -76,8 +71,8 @@ public class HomeActivity extends AppCompatActivity {
                 if(id == R.id.nav_home){
                     fragment = new HomeFragment();
                 }
-                if(id == R.id.nav_stats){
-                    fragment = new StatsFragment();
+                if(id == R.id.nav_loan){
+                    fragment = new loanFragment();
                 }
                 if(id == R.id.nav_pay){
                     fragment = new PayFragment();

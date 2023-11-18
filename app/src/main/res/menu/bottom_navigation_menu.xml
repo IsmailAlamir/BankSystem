@@ -10,8 +10,8 @@
         android:title="@string/pay"
         android:icon="@drawable/ic_action_pay"/>
 
-    <item android:id="@+id/nav_stats"
-        android:title="@string/stats"
+    <item android:id="@+id/nav_loan"
+        android:title="@string/loan"
         android:icon="@drawable/ic_action_stats"/>
 
 </menu>
